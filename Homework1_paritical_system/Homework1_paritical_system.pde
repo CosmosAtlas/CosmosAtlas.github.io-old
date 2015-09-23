@@ -2,7 +2,7 @@ import damkjer.ocd.*;
 import java.util.ArrayList;
 
 
-int genRate = 10000;
+int genRate = 2000;
 int timer;
 float particleLifeSpan = 1.7f;
 float smokeSpanTime = 1.7f;
@@ -78,16 +78,16 @@ void drawParticles(float dt)
 	PVector speed = new PVector(0,0,0);
 	for(int i = 0; i < particlePos.size(); i ++)
 	{
-    stroke(255, 255*particleSpan.get(i)/particleLifeSpan,0);
-    point(particlePos.get(i).x,-particlePos.get(i).y,particlePos.get(i).z);
+    //stroke(255, 255*particleSpan.get(i)/particleLifeSpan,0);
+    //point(particlePos.get(i).x,-particlePos.get(i).y,particlePos.get(i).z);
 
-		//pushMatrix();
-		//translate(particlePos.get(i).x, - particlePos.get(i).y, particlePos.get(i).z);
-		//fill(255, 255*particleSpan.get(i)/particleLifeSpan,0, 255*(particleSpan.get(i)/particleLifeSpan));
-		////sphere(5);
-		//ellipseMode(CENTER);
-		//ellipse(0,0,10,10);  
-		//popMatrix();
+		pushMatrix();
+		translate(particlePos.get(i).x, - particlePos.get(i).y, particlePos.get(i).z);
+		fill(255, 255*particleSpan.get(i)/particleLifeSpan,0, 255*(particleSpan.get(i)/particleLifeSpan));
+		//sphere(5);
+		ellipseMode(CENTER);
+		ellipse(0,0,10,10);  
+		popMatrix();
 
 		speed.x = particleSpeed.get(i).x;
 		speed.y = particleSpeed.get(i).y;
@@ -125,15 +125,15 @@ void drawSmoke(float dt)
 	PVector speed = new PVector(0,0,0);
 	for(int i = 0; i < smokePar.size(); i++)
 	{
-		point(smokePar.get(i).x, -smokePar.get(i).y, smokePar.get(i).z);
-          //pushMatrix();
-          //translate(smokePar.get(i).x, - smokePar.get(i).y, smokePar.get(i).z);
-          //fill(255, 255*(smokeSpan.get(i)/smokeSpanTime));
-          //noStroke();
-          ////sphere(5);
-          //ellipseMode(CENTER);
-          //ellipse(0,0,10,10);  
-          //popMatrix();
+//		point(smokePar.get(i).x, -smokePar.get(i).y, smokePar.get(i).z);
+          pushMatrix();
+          translate(smokePar.get(i).x, - smokePar.get(i).y, smokePar.get(i).z);
+          fill(255, 255*(smokeSpan.get(i)/smokeSpanTime));
+          noStroke();
+          //sphere(5);
+          ellipseMode(CENTER);
+          ellipse(0,0,10,10);  
+          popMatrix();
 		speed.x = smokeSpeed.get(i).x;
 		speed.y = smokeSpeed.get(i).y;
 		speed.z = smokeSpeed.get(i).z;
